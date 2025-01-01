@@ -3,6 +3,7 @@ plugins {
     application
     checkstyle
     jacoco
+    id("com.diffplug.spotless") version "6.12.0"
 }
 
 group = "hexlet.code"
@@ -31,4 +32,12 @@ tasks.test {
 tasks.jacocoTestReport {
     dependsOn(tasks.test) // tests are required to run before generating the report
     reports { xml.required.set(true) }
+}
+spotless {
+    java {
+        removeUnusedImports()
+        googleJavaFormat("1.15.0")
+            .aosp()
+            .reflowLongStrings()
+    }
 }
