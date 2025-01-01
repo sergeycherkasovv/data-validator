@@ -3,7 +3,7 @@ build:
 run-install:
 	./gradlew clean install
 run-dist:
-		./build/install/app/bin/app
+		./build/install/app/bin/Main
 run:
 	./gradlew run
 test:
