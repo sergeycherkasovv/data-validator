@@ -13,4 +13,8 @@ report:
 lint:
 	./gradlew checkstyleMain
 
+check:
+	./gradlew spotlessCheck
+apply:
+	./gradlew spotlessApply
 .PHONY: build
