@@ -10,10 +10,4 @@ report:
 	make -C app report
 lint:
 	make -C app lint
-
-check:
-	make -C app check
-apply:
-	make -C app apply
-
 .PHONY: build

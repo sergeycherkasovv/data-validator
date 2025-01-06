@@ -12,9 +12,4 @@ report:
 	./gradlew jacocoTestReport
 lint:
 	./gradlew checkstyleMain
-
-check:
-	./gradlew spotlessCheck
-apply:
-	./gradlew spotlessApply
 .PHONY: build
