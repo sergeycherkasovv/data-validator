@@ -3,7 +3,7 @@ plugins {
     application
     checkstyle
     jacoco
-    id("com.diffplug.spotless") version "6.12.0"
+    id("com.diffplug.spotless") version "7.0.0"
 }
 
 group = "hexlet.code"
@@ -18,6 +18,7 @@ repositories {
 }
 
 dependencies {
+    implementation("com.diffplug.spotless:spotless-plugin-gradle:7.0.0")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.18.0")
     compileOnly("org.projectlombok:lombok:1.18.34")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.18.0")
@@ -36,7 +37,7 @@ tasks.jacocoTestReport {
 spotless {
     java {
         removeUnusedImports()
-        googleJavaFormat("1.15.0")
+        googleJavaFormat("1.17.0")
             .aosp()
             .reflowLongStrings()
     }
