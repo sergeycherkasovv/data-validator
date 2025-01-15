@@ -5,15 +5,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class MapSchemaTest {
     MapSchema schema;
 
+
     @BeforeEach
     void beforeEach() {
-        var valid = new Validator();
+        Validator valid = new Validator();
         schema = valid.map();
     }
 
@@ -65,4 +67,15 @@ class MapSchemaTest {
         data.put("key2", "value3");
         assertFalse(schema.isValid(data));
     }
+
+//    @Test
+//    void shapeTest() {
+//        Map<String, BaseSchema<?>> schemas = new HashMap<>();
+//        schemas.put("firstName", valid.string().minLength(5).required());
+//        schemas.put("firstName", valid.string().required().minLength(5));
+//        schemas.put("age", valid.number().positive().range(5, 25).required());
+//        schemas.put("families", valid.map().sizeof(3));
+//
+//
+//    }
 }
