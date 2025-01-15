@@ -12,7 +12,7 @@ class StringSchemaTest {
 
     @BeforeEach
     void beforeEach() {
-        var valid = new Validator();
+        Validator valid = new Validator();
         schema = valid.string();
     }
 
