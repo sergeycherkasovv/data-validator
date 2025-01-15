@@ -8,11 +8,11 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class NumberSchemaTest {
+    Validator valid = new Validator();
     NumberSchema schema;
 
     @BeforeEach
     void beforeEach() {
-        Validator valid = new Validator();
         schema = valid.number();
     }
 
