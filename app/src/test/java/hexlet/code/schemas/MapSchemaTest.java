@@ -53,7 +53,7 @@ class MapSchemaTest {
     }
 
     @Test
-    void CombinationOfVerificationTest() {
+    void combinationOfConstraintsTest() {
         var data = new HashMap<String, String>();
         schema.sizeof(1);
         assertTrue(schema.isValid(null));
