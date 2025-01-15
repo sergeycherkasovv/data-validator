@@ -7,15 +7,16 @@ import org.junit.jupiter.api.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MapSchemaTest {
+    Validator valid = new Validator();
     MapSchema schema;
 
 
     @BeforeEach
     void beforeEach() {
-        Validator valid = new Validator();
         schema = valid.map();
     }
 
@@ -68,14 +69,29 @@ class MapSchemaTest {
         assertFalse(schema.isValid(data));
     }
 
-//    @Test
-//    void shapeTest() {
-//        Map<String, BaseSchema<?>> schemas = new HashMap<>();
-//        schemas.put("firstName", valid.string().minLength(5).required());
-//        schemas.put("firstName", valid.string().required().minLength(5));
-//        schemas.put("age", valid.number().positive().range(5, 25).required());
-//        schemas.put("families", valid.map().sizeof(3));
-//
-//
-//    }
+    @Test
+    void shapeTest() {
+        Map<String, BaseSchema> schemas = new HashMap<>();
+
+        schemas.put("firstName", valid.string().required());
+        schemas.put("lastName", valid.string().required().minLength(2));
+        schemas.put("age", valid.number().positive().range(5, 30).required());
+        schemas.put("family", valid.map().sizeof(1));
+
+        schema.shape(schemas);
+
+        Map<String, Object> human1 = new HashMap<>();
+        human1.put("firstName", "John");
+        human1.put("lastName", "Smith");
+        human1.put("age", 27);
+        human1.put("family", Map.of("wife", "Jane"));
+        assertTrue(schema.isValid(human1));
+
+        Map<String, Object> human2 = new HashMap<>();
+        human1.put("firstName", "Jane");
+        human1.put("lastName", "Smith");
+        human1.put("age", 35);
+        human1.put("family", Map.of("husband", "John"));
+        assertFalse(schema.isValid(human2));
+    }
 }
