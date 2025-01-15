@@ -15,5 +15,17 @@ public final class MapSchema extends BaseSchema<Map<?, ?>> {
         return this;
     }
 
-    //public MapSchema shape()
+    MapSchema shape(Map<String, BaseSchema> schemas) {
+        addValidation(
+                "shape",
+                map -> {
+                    return schemas.entrySet()
+                            .stream()
+                            .allMatch(e ->
+                                    e.getValue().isValid((map.get(e.getKey())))
+                            );
+                }
+        );
+        return this;
+    }
 }
