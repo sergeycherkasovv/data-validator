@@ -1,7 +1,6 @@
 package hexlet.code.schemas;
 
 import hexlet.code.Validator;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -48,7 +47,7 @@ class StringSchemaTest {
     }
 
     @Test
-    void CombinationOfVerificationTest() {
+    void combinationOfConstraintsTest() {
         schema.minLength(7).contains("go");
 
         assertTrue(schema.isValid(null));
