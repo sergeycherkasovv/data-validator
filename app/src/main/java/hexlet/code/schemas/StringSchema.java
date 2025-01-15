@@ -1,8 +1,14 @@
 package hexlet.code.schemas;
 
 
-public class StringSchema extends BaseSchema<String> {
+import java.util.Objects;
 
+public final class StringSchema extends BaseSchema<String> {
+
+    StringSchema required() {
+        addValidation("required", Objects::nonNull);
+        return this;
+    }
 
     StringSchema minLength(int minSize) {
         addValidation("minLength", s -> s.length() >= minSize);
