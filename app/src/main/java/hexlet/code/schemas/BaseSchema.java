@@ -20,11 +20,8 @@ public class BaseSchema<T> {
             return true;
         }
 
-        return validations.values().stream().allMatch(t -> t.test(value));
-    }
-
-    BaseSchema<T> required() {
-        addValidation("required", Objects::nonNull);
-        return this;
+        return validations.values()
+                        .stream()
+                        .allMatch(t -> t.test(value));
     }
 }
