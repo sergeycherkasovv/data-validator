@@ -1,7 +1,6 @@
 package hexlet.code.schemas;
 
 import hexlet.code.Validator;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -53,7 +52,7 @@ class NumberSchemaTest {
     }
 
     @Test
-    void CombinationOfVerificationTest() {
+    void combinationOfConstraintsTest() {
         schema.positive().range(-1, 1);
 
         assertTrue(schema.isValid(null));
