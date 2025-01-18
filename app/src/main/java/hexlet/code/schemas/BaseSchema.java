@@ -12,7 +12,7 @@ public class BaseSchema<T> {
         this.validations.put(key, validation);
     }
 
-    boolean isValid(T value) {
+    public boolean isValid(T value) {
         if (validations.containsKey("required") && value == null) {
             return false;
         }
