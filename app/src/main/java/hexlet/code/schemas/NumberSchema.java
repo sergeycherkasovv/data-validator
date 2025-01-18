@@ -4,17 +4,17 @@ import java.util.Objects;
 
 public final class NumberSchema extends BaseSchema<Integer> {
 
-    NumberSchema required() {
+    public NumberSchema required() {
         addValidation("required", Objects::nonNull);
         return this;
     }
 
-    NumberSchema range(int begin, int end) {
+    public NumberSchema range(int begin, int end) {
         addValidation("range", i -> begin <= i && i <= end);
         return this;
     }
 
-    NumberSchema positive() {
+    public NumberSchema positive() {
         addValidation("positive", i -> i > 0);
         return this;
     }
