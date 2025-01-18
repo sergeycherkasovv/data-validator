@@ -19,3 +19,4 @@ public final class NumberSchema extends BaseSchema<Integer> {
         return this;
     }
 }
+
