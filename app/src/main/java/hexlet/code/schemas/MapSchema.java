@@ -6,17 +6,17 @@ import java.util.Objects;
 
 public final class MapSchema extends BaseSchema<Map<?, ?>> {
 
-    MapSchema required() {
+    public MapSchema required() {
         addValidation("required", Objects::nonNull);
         return this;
     }
 
-    MapSchema sizeof(int limitSize) {
+    public MapSchema sizeof(int limitSize) {
         addValidation("sizeof", m -> m.size() == limitSize);
         return this;
     }
 
-    MapSchema shape(Map<String, BaseSchema> schemas) {
+    public MapSchema shape(Map<String, BaseSchema> schemas) {
         addValidation(
                 "shape",
                     map -> schemas.entrySet()
