@@ -1,11 +1,10 @@
 package hexlet.code.schemas;
 
-import java.util.Objects;
 
 public final class StringSchema extends BaseSchema<String> {
 
     public StringSchema required() {
-        addValidation("required", Objects::nonNull);
+        addValidation("required", s -> s != null && !s.equals(""));
         return this;
     }
 
