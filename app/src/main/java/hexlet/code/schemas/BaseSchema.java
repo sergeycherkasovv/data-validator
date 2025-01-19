@@ -5,14 +5,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Predicate;
 
-public abstract class BaseSchema<T> {
+public class BaseSchema<T> {
     private Map<String, Predicate<T>> validations = new HashMap<>();
 
     protected void addValidation(String key, Predicate<T> validation) {
         this.validations.put(key, validation);
     }
 
-    public boolean isValid(T value) {
+    public final boolean isValid(T value) {
         if (validations.containsKey("required") && value == null) {
             return false;
         }
