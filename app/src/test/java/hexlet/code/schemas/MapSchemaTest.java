@@ -11,8 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MapSchemaTest {
-    Validator valid = new Validator();
-    MapSchema schema;
+    private final Validator valid = new Validator();
+    private MapSchema schema;
 
 
     @BeforeEach
