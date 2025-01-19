@@ -16,13 +16,13 @@ public final class MapSchema extends BaseSchema<Map<?, ?>> {
         return this;
     }
 
-    public MapSchema shape(Map<String, BaseSchema> schemas) {
+    public MapSchema shape(Map<String, BaseSchema<String>> schemas) {
         addValidation(
                 "shape",
                     map -> schemas.entrySet()
                                 .stream()
                                 .allMatch(e ->
-                                        e.getValue().isValid((map.get(e.getKey())))
+                                        e.getValue().isValid(((String) map.get(e.getKey())))
                                 )
         );
         return this;
