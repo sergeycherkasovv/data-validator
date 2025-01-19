@@ -19,10 +19,12 @@ class StringSchemaTest {
     @Test
     void requiredTest() {
         assertTrue(schema.isValid(null));
-        schema.required();
-
-        assertFalse(schema.isValid(null));
         assertTrue(schema.isValid(""));
+
+        schema.required();
+        assertFalse(schema.isValid(null));
+        assertFalse(schema.isValid(""));
+
         assertTrue(schema.isValid("notNull"));
     }
 
@@ -33,6 +35,7 @@ class StringSchemaTest {
         assertFalse(schema.isValid("fail"));
 
         assertTrue(schema.isValid(null));
+        assertTrue(schema.isValid("Google"));
         assertTrue(schema.isValid("I like tests"));
     }
 
