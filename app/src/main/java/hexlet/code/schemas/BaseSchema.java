@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Predicate;
 
-public class BaseSchema<T> {
+public abstract class BaseSchema<T> {
     private Map<String, Predicate<T>> validations = new HashMap<>();
 
     protected void addValidation(String key, Predicate<T> validation) {
