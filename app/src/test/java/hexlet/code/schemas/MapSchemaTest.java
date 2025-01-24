@@ -11,13 +11,11 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MapSchemaTest {
-    private final Validator valid = new Validator();
     private MapSchema schema;
-
 
     @BeforeEach
     void beforeEach() {
-        schema = valid.map();
+        schema = new Validator().map();
     }
 
     @Test
@@ -71,10 +69,12 @@ class MapSchemaTest {
 
     @Test
     void shapeTest() {
+        var schemaString = new Validator().string();
+
         Map<String, BaseSchema<String>> schemas = new HashMap<>();
 
-        schemas.put("firstName", valid.string().required());
-        schemas.put("lastName", valid.string().required().minLength(2));
+        schemas.put("firstName", schemaString.required());
+        schemas.put("lastName", schemaString.required().minLength(2));
 
         schema.shape(schemas);
 
