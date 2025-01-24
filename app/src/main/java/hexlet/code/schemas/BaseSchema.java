@@ -26,8 +26,7 @@ public class BaseSchema<T> {
                 .allMatch(t -> t.test(value));
     }
 
-
-    protected BaseSchema required() {
+    public BaseSchema required() {
         addValidation("required", Objects::nonNull);
         return this;
     }
