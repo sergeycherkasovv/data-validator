@@ -9,11 +9,11 @@ import java.util.function.Predicate;
 public class BaseSchema<T> {
     private Map<String, Predicate<T>> validations = new HashMap<>();
 
-    protected final void addValidation(String key, Predicate<T> validation) {
+    protected void addValidation(String key, Predicate<T> validation) {
         this.validations.put(key, validation);
     }
 
-    public final boolean isValid(T value) {
+    protected boolean isValid(T value) {
         if (validations.containsKey("required") && value == null) {
             return false;
         }
@@ -27,7 +27,7 @@ public class BaseSchema<T> {
     }
 
 
-    public BaseSchema required() {
+    protected BaseSchema required() {
         addValidation("required", Objects::nonNull);
         return this;
     }
