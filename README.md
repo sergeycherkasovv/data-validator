@@ -1,6 +1,14 @@
-## Data Validator – a library for checking the validity of any data. Such libraries exist in every programming language since most applications handle external data that require validation, especially user-submitted form data.
+### Hexlet tests and linter status:
+[![Actions Status](https://github.com/sergeycherkasovv/java-project-78/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/sergeycherkasovv/java-project-78/actions)
+### My tests and linter status:
+[![my-check](https://github.com/sergeycherkasovv/java-project-78/actions/workflows/main.yml/badge.svg)](https://github.com/sergeycherkasovv/java-project-78/actions/workflows/main.yml)
+### Badges Code Climate
+[![Test Coverage](https://api.codeclimate.com/v1/badges/66f1e15728426872fb4e/test_coverage)](https://codeclimate.com/github/sergeycherkasovv/java-project-78/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/66f1e15728426872fb4e/maintainability)](https://codeclimate.com/github/sergeycherkasovv/java-project-78/maintainability)
 
-### Validation of strings:
+**Data Validator** — это библиотека на языке Java для валидации данных. Она позволяет создавать схемы валидации для различных типов данных, таких как строки, числа и карты, и проверять данные на соответствие этим схемам. Библиотека поддерживает цепочку методов для настройки правил валидации.
+
+**Validation of strings:**
 ```java
 import hexlet.code.Validator;
 import hexlet.code.schemas.StringSchema;
@@ -32,7 +40,7 @@ schema.isValid("what does the fox say"); // false
 var schema1 = v.string();
 schema1.minLength(10).minLength(4).isValid("Hexlet"); // true
 ```
-### Validating numbers:
+**Validating numbers:**
 ```java
 import hexlet.code.Validator;
 import hexlet.code.schemas.NumberSchema;
@@ -64,7 +72,7 @@ schema.isValid(10); // true
 schema.isValid(4); // false
 schema.isValid(11); // false
 ```
-### Validation of Map type objects:
+**Validation of Map type objects:**
 ```java
 import hexlet.code.Validator;
 import hexlet.code.schemas.MapSchema;
@@ -89,7 +97,7 @@ schema.isValid(data);  // false
 data.put("key2", "value2");
 schema.isValid(data); // true
 ```
-### Nested validation
+**Nested validation**
 ```java
 import hexlet.code.Validator;
 import hexlet.code.schemas.MapSchema;
@@ -130,12 +138,3 @@ human3.put("firstName", "Anna");
 human3.put("lastName", "B");
 schema.isValid(human3); // false
 ```
-
-### Hexlet tests and linter status:
-[![Actions Status](https://github.com/sergeycherkasovv/java-project-78/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/sergeycherkasovv/java-project-78/actions)
-### My tests and linter status:
-[![my-check](https://github.com/sergeycherkasovv/java-project-78/actions/workflows/main.yml/badge.svg)](https://github.com/sergeycherkasovv/java-project-78/actions/workflows/main.yml)
-### Badges Code Climate
-[![Test Coverage](https://api.codeclimate.com/v1/badges/66f1e15728426872fb4e/test_coverage)](https://codeclimate.com/github/sergeycherkasovv/java-project-78/test_coverage)
-[![Maintainability](https://api.codeclimate.com/v1/badges/66f1e15728426872fb4e/maintainability)](https://codeclimate.com/github/sergeycherkasovv/java-project-78/maintainability)
-
