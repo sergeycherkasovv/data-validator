@@ -138,3 +138,9 @@ human3.put("firstName", "Anna");
 human3.put("lastName", "B");
 schema.isValid(human3); // false
 ```
+
+## 📮 Автор
+Разработано в рамках обучения на Hexlet.
+Автор: [sergeycherkasovv](https://github.com/sergeycherkasovv)
+
+Почта: iamcherkasov.job@gmail.com
